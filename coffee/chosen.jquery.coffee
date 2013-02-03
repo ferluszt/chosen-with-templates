@@ -169,7 +169,8 @@ class Chosen extends AbstractChosen
       @active_field = true
     else
       this.close_field()
-
+	
+	#selected items on load?
   results_build: ->
     @parsing = true
     @results_data = root.SelectParser.select_to_array @form_field
@@ -193,7 +194,7 @@ class Chosen extends AbstractChosen
         if data.selected and @is_multiple
           this.choice_build data
         else if data.selected and not @is_multiple
-          html = @useTemplate data
+          html = @useTemplateSelected data 
           @selected_item.removeClass("chzn-default").find("span").html html
           this.single_deselect_control_build() if @allow_single_deselect
 
@@ -302,7 +303,7 @@ class Chosen extends AbstractChosen
       return false # fire event
     choice_id = @container_id + "_c_" + item.array_index
     @choices += 1
-    html = @useTemplate item
+    html = @useTemplateSelected item
     if item.disabled
       html = '<li class="search-choice search-choice-disabled" id="' + choice_id + '"><span>' + html + '</span></li>'
     else
@@ -342,7 +343,8 @@ class Chosen extends AbstractChosen
   results_reset_cleanup: ->
     @current_value = @form_field_jq.val()
     @selected_item.find("abbr").remove()
-
+	
+	#results which are clicked
   result_select: (evt) ->
     if @result_highlight
       high = @result_highlight
@@ -368,7 +370,7 @@ class Chosen extends AbstractChosen
       if @is_multiple
         this.choice_build item
       else
-        html = @useTemplate item
+        html = @useTemplateSelected item
         @selected_item.find("span").first().html html
         this.single_deselect_control_build() if @allow_single_deselect
 

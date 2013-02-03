@@ -130,5 +130,12 @@ class AbstractChosen
       this.options.template(text or item.text, item.value, item.template_data)
     else
       text or item.text
+  
+  useTemplateSelected: (item,text=false) ->
+    if this.options.templateSelected
+      this.options.templateSelected(text or item.text, item.value, item.template_data)	
+    else 
+      this.useTemplate(item,text)
+
 
 root.AbstractChosen = AbstractChosen

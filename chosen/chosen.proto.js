@@ -316,6 +316,17 @@ Copyright (c) 2011 by Harvest
       }
     };
 
+    AbstractChosen.prototype.useTemplateSelected = function(item, text) {
+      if (text == null) {
+        text = false;
+      }
+      if (this.options.templateSelected) {
+        return this.options.templateSelected(text || item.text, item.value, item.template_data);
+      } else {
+        return this.useTemplate(item, text);
+      }
+    };
+
     return AbstractChosen;
 
   })();
