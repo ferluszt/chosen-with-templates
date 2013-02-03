@@ -2,7 +2,7 @@
 
 Templates add the ability to fully customize the contents of select boxes. Add Picturs for example. Go crazy.
 
-Examples: http://thomasf1.github.com/chosen-with-templates/
+Examples: http://feluszt.github.com/chosen-with-templates/
 
 Extending Chosen, a library for making long, unwieldy select boxes more user friendly.
 

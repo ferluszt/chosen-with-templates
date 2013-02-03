@@ -1394,9 +1394,15 @@
     $(".chzn-select-template-example").chosen({
       template: function (text, value, templateData) {
         return [
-          "<img src='" + templateData.ico + "' height='16' width='16'></img> " + text + "</i> value: " + value         
+          "<img src='" + templateData.ico + "' height='16' width='16'></img> <i>" + text + "</i> value: " + value         
         ].join("");
       }
+      templateSelected: function (text, value, templateData) {
+        return [
+          "<i>" + text + "</i> value: " + value  +"<img src='" + templateData.ico + "' height='16' width='16'></img>        
+        ].join("");
+      }
+      
     });
   </script>
   </form>
